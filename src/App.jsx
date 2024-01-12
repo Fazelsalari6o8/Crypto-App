@@ -1,5 +1,8 @@
+// Components
+import HomePage from "./components/templates/HomePage";
+
 function App() {
-  return <h1>Salar Crypto</h1>;
+  return <HomePage />;
 }
 
 export default App;
