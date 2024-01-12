@@ -20,3 +20,18 @@ a {
   text-decoration: inherit;
   color: inherit;
 }
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background-color: #131315;
+  border-radius: 20px;
+}
+::-webkit-scrollbar-track:hover {
+  box-shadow: inset 2px 0 10px -7px #fff;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rebeccapurple;
+  border-radius: 20px;
+}
