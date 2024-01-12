@@ -1,28 +1,35 @@
+// components
+import { Triangle } from "react-loader-spinner";
+
 // files
 import chartUp from "../../assets/chart-up.svg";
 import chartDown from "../../assets/chart-down.svg";
 
-function TableCoin({ coins }) {
+function TableCoin({ coins, isLoading }) {
   console.log(coins);
   return (
     <div>
-      <table>
-        <thead>
-          <tr>
-            <th>Coin</th>
-            <th>Name</th>
-            <th>Price</th>
-            <th>24h</th>
-            <th>Total Volume</th>
-            <th>chart</th>
-          </tr>
-        </thead>
-        <tbody>
-          {coins.map((coin) => (
-            <TableRow key={coin.id} coin={coin} />
-          ))}
-        </tbody>
-      </table>
+      {isLoading ? (
+        <Triangle color="#3874ff" />
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Coin</th>
+              <th>Name</th>
+              <th>Price</th>
+              <th>24h</th>
+              <th>Total Volume</th>
+              <th>chart</th>
+            </tr>
+          </thead>
+          <tbody>
+            {coins.map((coin) => (
+              <TableRow key={coin.id} coin={coin} />
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
