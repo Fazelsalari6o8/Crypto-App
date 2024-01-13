@@ -66,24 +66,26 @@ function Search({ currency, setCurrency }) {
           <option value="jpy">JPY</option>
         </select>
       </div>
-      <div className={styles.searchResult}>
-        {isLoading && (
-          <RotatingLines
-            width="50"
-            height="50"
-            strokeWidth="2"
-            strokeColor="#3874ff"
-          />
-        )}
-        <ul>
-          {coins.map((coin) => (
-            <li key={coin.id}>
-              <img src={coin.thumb} alt={coin.name} />
-              <p>{coin.name}</p>
-            </li>
-          ))}
-        </ul>
-      </div>
+      {(!!coins.length || isLoading) && (
+        <div className={styles.searchResult}>
+          {isLoading && (
+            <RotatingLines
+              width="50"
+              height="50"
+              strokeWidth="2"
+              strokeColor="#3874ff"
+            />
+          )}
+          <ul>
+            {coins.map((coin) => (
+              <li key={coin.id}>
+                <img src={coin.thumb} alt={coin.name} />
+                <p>{coin.name}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </div>
   );
 }
