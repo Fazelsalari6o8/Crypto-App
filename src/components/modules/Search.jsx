@@ -2,10 +2,13 @@
 import { useEffect, useState } from "react";
 
 // library
-import { Triangle } from "react-loader-spinner";
+import { RotatingLines } from "react-loader-spinner";
 
 // services
 import { searchCoin } from "../../services/cryptoApi.js";
+
+// style
+import styles from "./Search.module.css";
 
 function Search({ currency, setCurrency }) {
   const [text, setText] = useState("");
@@ -49,20 +52,29 @@ function Search({ currency, setCurrency }) {
   }, [text]);
 
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Search"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
-        <option value="usd">USD</option>
-        <option value="eur">EUR</option>
-        <option value="jpy">JPY</option>
-      </select>
-      <div>
-        {isLoading && <Triangle color="#3874ff" height={40} />}
+    <div className={styles.container}>
+      <div className={styles.searchBox}>
+        <input
+          type="text"
+          placeholder="Search"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <select value={currency} onChange={(e) => setCurrency(e.target.value)}>
+          <option value="usd">USD</option>
+          <option value="eur">EUR</option>
+          <option value="jpy">JPY</option>
+        </select>
+      </div>
+      <div className={styles.searchResult}>
+        {isLoading && (
+          <RotatingLines
+            width="50"
+            height="50"
+            strokeWidth="2"
+            strokeColor="#3874ff"
+          />
+        )}
         <ul>
           {coins.map((coin) => (
             <li key={coin.id}>
