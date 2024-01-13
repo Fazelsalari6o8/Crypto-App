@@ -4,10 +4,10 @@ import { useEffect, useState } from "react";
 // Components
 import TableCoin from "../modules/TableCoin.jsx";
 import Pagination from "../modules/Pagination.jsx";
+import Search from "../modules/Search.jsx";
 
 // services
 import { getCoinList } from "../../services/cryptoApi.js";
-import Search from "../modules/Search.jsx";
 
 function HomePage() {
   const [coins, setCoins] = useState([]);
