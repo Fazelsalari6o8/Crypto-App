@@ -1,4 +1,4 @@
-// components
+// library
 import { Triangle } from "react-loader-spinner";
 
 // files
