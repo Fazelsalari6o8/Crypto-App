@@ -16,14 +16,28 @@ function HomePage() {
   const [currency, setCurrency] = useState("usd");
 
   useEffect(() => {
+    const controller = new AbortController();
+
     setIsLoading(true);
+
     const getData = async () => {
-      const res = await fetch(getCoinList(page, currency));
-      const json = await res.json();
-      setCoins(json);
-      setIsLoading(false);
+      try {
+        const res = await fetch(getCoinList(page, currency), {
+          signal: controller.signal,
+        });
+        const json = await res.json();
+        setCoins(json);
+        setIsLoading(false);
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          alert(error.message);
+        }
+      }
     };
+
     getData();
+
+    return () => controller.abort();
   }, [page, currency]);
   return (
     <div>
