@@ -9,7 +9,6 @@ import chartDown from "../../assets/chart-down.svg";
 import styles from "./TableCoin.module.css";
 
 function TableCoin({ coins, isLoading }) {
-  console.log(coins);
   return (
     <div className={styles.container}>
       {isLoading ? (
