@@ -59,7 +59,7 @@ const TableRow = ({
       </td>
       <td>{name}</td>
       <td>
-        {currency === "usd" ? "$ " : currency === "eur " ? "€ " : "¥ "}
+        {currency === "usd" ? "$ " : currency === "eur" ? "€ " : "¥ "}
         {current_price.toLocaleString()}
       </td>
       <td className={price_change > 0 ? styles.success : styles.error}>
