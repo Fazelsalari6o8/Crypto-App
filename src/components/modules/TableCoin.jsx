@@ -1,6 +1,9 @@
 // library
 import { Triangle } from "react-loader-spinner";
 
+// services
+import { marketChart } from "../../services/cryptoApi";
+
 // files
 import chartUp from "../../assets/chart-up.svg";
 import chartDown from "../../assets/chart-down.svg";
@@ -45,6 +48,7 @@ export default TableCoin;
 
 const TableRow = ({
   coin: {
+    id,
     name,
     image,
     symbol,
@@ -55,8 +59,14 @@ const TableRow = ({
   currency,
   setChart,
 }) => {
-  const showHandler = () => {
-    setChart(true);
+  const showHandler = async () => {
+    try {
+      const res = await fetch(marketChart(id));
+      const json = await res.json();
+      setChart(json);
+    } catch (error) {
+      setChart(null);
+    }
   };
 
   return (
