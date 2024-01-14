@@ -9,7 +9,6 @@ const convertData = (data, type) => {
     };
   });
 
-  console.log(convertedData);
   return convertedData;
 };
 

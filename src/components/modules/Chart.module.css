@@ -69,6 +69,7 @@
 .types .selected {
   background-color: #3874ff;
   color: #fff;
+  transition: all 0.2s ease-in;
 }
 
 .details {
