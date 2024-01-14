@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import TableCoin from "../modules/TableCoin.jsx";
 import Pagination from "../modules/Pagination.jsx";
 import Search from "../modules/Search.jsx";
+import Chart from "../modules/Chart.jsx";
 
 // services
 import { getCoinList } from "../../services/cryptoApi.js";
@@ -14,6 +15,7 @@ function HomePage() {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [currency, setCurrency] = useState("usd");
+  const [chart, setChart] = useState(null);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -42,8 +44,14 @@ function HomePage() {
   return (
     <div>
       <Search currency={currency} setCurrency={setCurrency} />
-      <TableCoin coins={coins} isLoading={isLoading} currency={currency} />
+      <TableCoin
+        coins={coins}
+        isLoading={isLoading}
+        currency={currency}
+        setChart={setChart}
+      />
       <Pagination page={page} setPage={setPage} />
+      {!!chart && <Chart chart={chart} setChart={setChart} />}
     </div>
   );
 }
