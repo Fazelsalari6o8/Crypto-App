@@ -31,3 +31,25 @@
 .selected {
   background-color: #3874ff;
 }
+
+/* Responsive */
+@media (max-width: 480px) {
+  .pagination {
+    width: 95%;
+  }
+}
+
+@media (max-width: 360px) {
+  .pagination button {
+    width: 60px;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .pagination p {
+    width: 20px;
+    height: 20px;
+    font-size: 0.8rem;
+  }
+}

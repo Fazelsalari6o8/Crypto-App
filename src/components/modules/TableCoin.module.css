@@ -60,5 +60,12 @@
   .table td,
   .table th {
     padding: 0 10px;
+    text-align: center;
+  }
+  .table tbody tr .name {
+    min-width: 250px;
+  }
+  .table tbody tr .price {
+    min-width: 150px;
   }
 }

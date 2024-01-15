@@ -75,8 +75,8 @@ const TableRow = ({ coin, currency, setChart }) => {
           <span>{symbol.toUpperCase()}</span>
         </div>
       </td>
-      <td>{name}</td>
-      <td>
+      <td className={styles.name}>{name}</td>
+      <td className={styles.price}>
         {currency === "usd" ? "$ " : currency === "eur" ? "€ " : "¥ "}
         {current_price.toLocaleString()}
       </td>

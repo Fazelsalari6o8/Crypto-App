@@ -86,3 +86,39 @@
   color: #3874ff;
   font-weight: 700;
 }
+
+/* Responsive */
+@media (max-width: 840px) {
+  .chart {
+    width: 95%;
+  }
+  .graph {
+    width: auto;
+    height: 200px;
+  }
+
+  .details div {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .types button {
+    margin: 5px;
+    font-size: 0.8rem;
+  }
+
+  .details div {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 460px) {
+  .graph {
+    height: 150px;
+  }
+
+  .details div {
+    font-size: 0.6rem;
+  }
+}
